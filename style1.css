@@ -1,0 +1,89 @@
+body{
+    align-items: center;
+    font-size:large;
+}
+.head{
+    text-align: center;
+    background-color: aqua;
+}
+.button-group{
+    display :flex;
+    margin-top:10px;
+    justify-content: space-between;
+    
+
+}
+.container {
+
+    width:300px;
+    line-height: 2;
+
+  }
+  .btn{
+    /* display: flex; */
+    /* justify-content: space-between; */
+  /* margin-left: 1000px; */
+  color: red;
+  background-color:black
+  }
+.bt1{
+  background-color: greenyellow;
+
+}
+  
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  #validationResult1,#validationResult2 {
+    color: red;
+  }
+  #bt{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+table{
+  border: 1px;
+  margin-left:800px;
+  position: absolute;
+  top: 100px;
+  font-style: italic;
+  color: green;
+  
+}
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  button[type="reset"] {
+    background-color: #f44336;
+    color: white;
+  }
+  body{
+    background-image: url("photo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  span{
+    color: #f44336;
+  }
+  #date{
+    margin-top: 10px;
+  }
+  th{color: indigo;}
