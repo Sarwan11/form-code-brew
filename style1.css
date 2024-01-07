@@ -1,21 +1,38 @@
 body{
-    align-items: center;
+    /* align-items: center; */
     font-size:large;
+    background-image: url("photo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .head{
     text-align: center;
     background-color: aqua;
 }
-.button-group{
+
+.main{
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+}
+/* .button-group{
     display :flex;
     margin-top:10px;
     justify-content: space-between;
-    
+} */
+.edit-button{
+  background-color:yellow;
 
 }
+.delete-button{
+  background-color: red;
+  color: pink;
+}
+
+
 .container {
 
-    width:300px;
+    width:500px;
     line-height: 2;
 
   }
@@ -30,8 +47,6 @@ body{
   background-color: greenyellow;
 
 }
-  
-
   input[type="text"],
   input[type="email"],
   input[type="password"] {
@@ -44,46 +59,59 @@ body{
   #validationResult1,#validationResult2 {
     color: red;
   }
-  #bt{
-    display: flex;
-    justify-content: space-between;
+  
+  .sdelete{
+    background-color: yellow;
   }
+  /* .bt1,bt2{
+  margin-left: 200px;
+  } */
 
   button {
-    padding: 10px 20px;
+    padding: 10px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    margin-right: 10px;
-  }
-table{
-  border: 1px;
-  margin-left:800px;
-  position: absolute;
-  top: 100px;
-  font-style: italic;
-  color: green;
-  
-}
-  
-  button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
+    
   }
 
-  button[type="reset"] {
-    background-color: #f44336;
-    color: white;
-  }
-  body{
-    background-image: url("photo.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  span{
-    color: #f44336;
-  }
-  #date{
-    margin-top: 10px;
-  }
-  th{color: indigo;}
+.table1{
+  border: 1px;
+  margin-left:800px; 
+   position: absolute;
+  top: 100px;
+  font-style: italic;
+  color:black;
+  border-collapse: collapse;
+  
+}
+th, td{
+  border: 1px solid black;
+}
+  
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+}
+
+button[type="reset"] {
+  background-color: #f44336;
+  color: white;
+}
+
+span{
+  color: #f44336;
+}
+#date{
+  margin-top: 10px;
+}
+th{
+  color: indigo;
+ border:10px;
+}
+#startDate{
+  width: 500px;
+}
+#endDate{
+  width: 500px;
+}

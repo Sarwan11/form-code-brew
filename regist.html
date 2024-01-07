@@ -7,91 +7,86 @@
     <link rel="stylesheet" href="style1.css" />
   </head>
   <body>
-    <form id="form">
-      <div class="container">
-        <div class="head">
-          <h1>📲Registration Form</h1>
-        </div>
-        <div>
-          <label for="name">Name:</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Enter the name"
-            required />
-          <span id="user"></span>
-        </div>
-        <div>
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            placeholder="Enter the email"
-            name="email"
-            id="email" /><span id="emailErr"></span>
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Enter the password." />
-          <span id="err"></span>
-        </div>
-        <div>
-          <label for="cpassword">Password check:</label>
-          <input
-            type="password"
-            name=""
-            id="cpassword"
-            placeholder="Enter the password again" />
-          <span id="cpass"></span>
-        </div>
+    <div class="main">
+      <div class="div1">
+        <form id="form">
+          <div class="container">
+            <div class="head">
+              <h1>📲Registration Form📱</h1>
+            </div>
+            <div>
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Enter the name"
+                required />
+              <span id="user"></span>
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                placeholder="Enter the email"
+                name="email"
+                id="email" /><span id="emailErr"></span>
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter the password." />
+              <span id="err"></span>
+            </div>
+            <div>
+              <label for="cpassword">Password check:</label>
+              <input
+                type="password"
+                name=""
+                id="cpassword"
+                placeholder="Enter the password again" />
+              <span id="cpass"></span>
+            </div>
+          </div>
+
+          <div>
+            <label for="startDate">Start Date:</label><br />
+            <input type="date" id="startDate" onchange="sdate()" />
+            <p id="validationResult1"></p>
+          </div>
+          <div>
+            <label for="endDate">End Date:</label><br />
+            <input type="date" id="endDate" onchange="edate()" />
+            <p id="validationResult2"></p>
+          </div>
+          <br />
+          <button type="button" onclick="v()" class="bt1">Submit</button>
+          <button type="reset" class="bt2">Reset</button>
+        </form>
       </div>
-
-      <div class="n1">
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" onchange="sdate()" />
-        <p id="validationResult1"></p>
-      </div>
-      <div class="n2">
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" onchange="edate()" />
-        <p id="validationResult2"></p>
-      </div>
-      <br />
-      <button type="button" onclick="v()" class="bt1">Submit</button>
-      <button type="reset">Reset</button>
-    </form>
-
-    <table border="6" id="main">
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Starting date</th>
-        <th>Ending date</th>
-        <th>delete</th>
-        <th>checkbox</th>
-        <th>edit</th>
-      </tr>
-
-      <tbody id="tableBody">
-        <div style="margin-top: 20px; margin-bottom: 20px;">
-
-          <button  style="color:blue" onclick="addDummy()">Add Dummy</button>
-        </div>
-
-        <tfoot> <div id = "bt">
-          <button class="btn" onclick="clearTable()">Delete all</button>
-      <button  style="color:red" onclick="deleteSelected()">Deleted selected</button>
     </div>
-        </tfoot>
-      </tbody>
-      
-    
+    <table style="border: 2px solid black" class="table1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Starting date</th>
+          <th>Ending date</th>
+          <th>delete</th>
+          <th>checkbox</th>
+          <th>edit</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+      <tfoot>
+        <button onclick="clearTable()">Delete All</button>
+        <button style="color: red" onclick="deleteSelected()">Del.Sel</button>
+      </tfoot>
     </table>
-
+    <button onclick="addDummy()">sample</button>
     <script src="regist.js"></script>
   </body>
 </html>

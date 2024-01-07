@@ -13,23 +13,22 @@ function clearTable() {
   tableBody.innerHTML = "";
   emailarray = [];
 }
-var isEditMode = false; // Initially, set the flag to false
+var isEditMode = false;
 function v() {
   var username = document.getElementById("name");
   var mail = document.getElementById("email").value;
   var password = document.getElementById("password");
   var cpassword = document.getElementById("cpassword");
   var startDate = document.getElementById("startDate").value;
-  var endDateInput = document.getElementById("endDate").value;
+  var endDate = document.getElementById("endDate").value;
   var isValid = true;
 
   if (username.value.trim() == "") {
     document.getElementById("user").innerHTML =
-      "Please fill the name of the user";
+      "Please fill the name of the user.";
     isValid = false;
   } else {
     document.getElementById("user").innerHTML = "";
-    isValid = true;
   }
   if (mail == "") {
     document.getElementById("emailErr").innerHTML =
@@ -37,8 +36,8 @@ function v() {
     isValid = false;
   } else {
     document.getElementById("emailErr").innerHTML = "";
-    isValid = true;
   }
+
   if (password.value == "") {
     document.getElementById("err").innerHTML = " please fill the password box.";
     isValid = false;
@@ -48,8 +47,8 @@ function v() {
     isValid = false;
   } else {
     document.getElementById("err").innerHTML = "";
-    isValid = true;
   }
+
   if (cpassword.value == "") {
     document.getElementById("cpass").innerHTML = "please fill the cpassword";
     isValid = false;
@@ -58,76 +57,70 @@ function v() {
     isValid = false;
   } else {
     document.getElementById("cpass").innerHTML = "";
-    isValid = true;
   }
+
   if (startDate == "") {
     document.getElementById("validationResult1").innerText =
       "Please enter a start date first!";
     isValid = false;
   } else {
     document.getElementById("validationResult1").innerText = "";
-    isValid = true;
   }
-  if (endDateInput == "") {
+
+  if (endDate == "") {
     document.getElementById("validationResult2").innerText =
       "Please enter an end date!";
     isValid = false;
   } else {
     document.getElementById("validationResult2").innerText = "";
-    isValid = true;
   }
-  console.log(isEditMode, "isEditMode______");
+  // console.log(isEditMode,"hey there");
   if (isValid) {
     if (isEditMode) {
-      // Get the updated values from the form
       var updatedName = document.getElementById("name").value;
       var updatedMail = document.getElementById("email").value;
       var updatedStartDate = document.getElementById("startDate").value;
       var updatedEndDate = document.getElementById("endDate").value;
 
-      // Find the row that needs to be updated based on some identifier (e.g., email)
       var tableRows = document.querySelectorAll("#tableBody tr");
       tableRows.forEach(function (row) {
-        var emailCell = row.querySelector("td:nth-child(2)"); // Assuming email is in the second column
+        var emailCell = row.querySelector("td:nth-child(2)");
         if (emailCell.innerText === mail) {
-          // Update the row with the new values
           row.cells[0].innerText = updatedName;
           row.cells[1].innerText = updatedMail;
           row.cells[2].innerText = updatedStartDate;
           row.cells[3].innerText = updatedEndDate;
+          console.log("hii iam in ");
 
-          // Optional: Update the emailarray with the new email value
-          // You might remove the old email value and add the new one
           var index = emailarray.indexOf(mail);
           if (index !== -1) {
             emailarray[index] = updatedMail;
+            document.getElementById("form").reset();
           }
+          isEditMode = false;
         }
       });
-
-      // Reset isEditMode back to false after editing is done
-      isEditMode = false;
     } else {
       if (emailarray.includes(mail)) {
         alert("email is not valid.");
       } else {
-        addvalue(username.value, mail, startDate, endDateInput);
+        addvalue(username.value, mail, startDate, endDate);
         alert("You have successfully registered.");
+        document.getElementById("form").reset();
       }
     }
   }
 }
 var emailarray = [];
 
-function addvalue(naam, mail, startDate, endDateInput) {
+function addvalue(naam, mail, startDate, endDate) {
   var deleteButton = document.createElement("button");
   deleteButton.innerHTML = "Delete";
+  deleteButton.classList.add("delete-button");
   var editBtn = document.createElement("button");
   editBtn.innerHTML = "Edit";
-
+  editBtn.classList.add("edit-button");
   var tbody = document.querySelector("#tableBody");
-
-  console.log(tbody, "tboddyyyy");
 
   deleteButton.onclick = function () {
     var row = this.parentNode.parentNode;
@@ -139,27 +132,13 @@ function addvalue(naam, mail, startDate, endDateInput) {
 
     // console.log(emailValue)
   };
-
-  // Edit=====
-
   editBtn.onclick = function () {
-    console.log(emailarray, "emailarray_____");
-    // Populate form fields with existing data
     document.getElementById("name").value = naam;
     document.getElementById("email").value = mail;
     document.getElementById("startDate").value = startDate;
-    document.getElementById("endDate").value = endDateInput;
+    document.getElementById("endDate").value = endDate;
 
-    // Remove the row from the table
-    // tr.remove();
     isEditMode = true;
-    // Optional: You might want to set a flag or variable to indicate an edit mode
-    // For example, you can have a global variable like 'isEditMode = true;'
-    // to differentiate between adding and editing rows
-
-    // Handle editing - users can modify data in the form fields and click "Submit" again to update the table
-    // You might use a similar validation and add logic like in the 'v()' function when the user clicks the submit button.
-    // Once validated, update the table with the edited values similar to adding a new row.
   };
 
   var tr = document.createElement("tr");
@@ -175,7 +154,7 @@ function addvalue(naam, mail, startDate, endDateInput) {
   td1.innerHTML = naam;
   td2.innerHTML = mail;
   td3.innerHTML = startDate;
-  td4.innerHTML = endDateInput;
+  td4.innerHTML = endDate;
   td5.appendChild(deleteButton);
   td6.innerHTML = `<input type="checkbox" id="checkbox" name="mycheckBox"></input>`;
   td7.appendChild(editBtn);

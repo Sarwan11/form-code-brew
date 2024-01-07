@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="modal.css" />
+    <style></style>
+  </head>
+  <body>
+    <button class="btn.login" onclick="showModal()">Login</button>
+    <div class="overlay"></div>
+    <div class="loginform">
+      <span>&times;</span>
+      <form action="">
+        <!-- <div>
+          <label for="">Username</label>
+          <input type="text" />
+        </div> -->
+        <div>
+          <label for="">Password</label>
+          <input type="password" />
+        </div>
+        <button>Login</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    function showModal() {
+      document.querySelector(".overlay").classList.add("showoverlay");
+      document.querySelector(".loginform").classList.add("showloginform");
+    }
+    function closeModal() {
+      console.log("Bhosdi ka aa rha h");
+      document.querySelector(".overlay").classList.reomove("showoverlay");
+      document.querySelector(".loginform").classList.remove("showloginform");
+    }
+    var b = document.querySelector("span");
+    // console.log(b);
+    b.addEventListener("click", closeModal);
+  </script>
+</html>
